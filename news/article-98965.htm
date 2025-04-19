@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://topvpntuijian.github.io/news/article-98965.htm" />
+    <meta charset="utf-8">
+    <title>spring boot Actuator之自定义Endpoint</title>
+        <meta name="description" content="本文基于spring boot 2.2.0 release版本。  在上一篇文章《spring boot Actuator原理详解之启动》详细介绍了在web环境下，Actuator是如何启动的，这里对" />
+        <link rel="icon" href="/assets/website/img/clashvergegithub/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="最佳免费VPN推荐 机场订阅中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://topvpntuijian.github.io/news/article-98965.htm" />
+    <meta property="og:site_name" content="最佳免费VPN推荐 机场订阅中文网" />
+    <meta property="og:title" content="spring boot Actuator之自定义Endpoint" />
+    <meta property="og:image" content="https://topvpntuijian.github.io/uploads/20240909/2f485cd6b73507d546317714d8e6537f.webp" />
+        <meta property="og:release_date" content="2025-04-19T08:55:55" />
+    <meta property="og:updated_time" content="2025-04-19T08:55:55" />
+        <meta property="og:description" content="本文基于spring boot 2.2.0 release版本。  在上一篇文章《spring boot Actuator原理详解之启动》详细介绍了在web环境下，Actuator是如何启动的，这里对" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Pe-7 icon -->
+    <link href="/assets/website/css/clashvergegithub/pe-icon-7.css" rel="stylesheet" type="text/css">
+    <!--Slider-->
+    <link rel="stylesheet" href="/assets/website/css/clashvergegithub/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergegithub/owl.theme.default.min.css">
+    <!-- css -->
+    <link href="/assets/website/css/clashvergegithub/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/website/css/clashvergegithub/style.min.css" rel="stylesheet" type="text/css">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="spring boot Actuator之自定义Endpoint">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GJ9RVVRN19"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GJ9RVVRN19');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!--Navbar Start-->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark align-items-center">
+        <div class="container">
+            <!-- LOGO -->
+            <a class="logo mr-3" href="/">
+                            <span>最佳免费VPN推荐</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="" data-feather="menu"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav">
+                                        <li class="nav-item">
+                        <a href="/" class="nav-link">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a href="/free-nodes/" class="nav-link">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a href="/paid-subscribe/" class="nav-link">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a href="/news/" class="nav-link">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a href="/client.htm" class="nav-link">客户端</a>
+                    </li>
+                                    </ul>
+                
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+    <!-- Hero Start -->
+    <section class="hero-5-bg position-relative bg-light" id="home" style="height:500px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div style="margin-top: 4rem;">
+                        <h1 class="hero-5-title line-height-1_4 mb-4">spring boot Actuator之自定义Endpoint</h1>
+                        <p class="text-muted mb-4 pb-3">
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="/assets/website/img/clashvergegithub/hero-5-img.png" alt="Clash Verge Github hero" class="hero-5-img">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero End -->
+    <!-- Features Start -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="features-content">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <blockquote> <p>本文基于spring boot 2.2.0 release版本。</p> </blockquote> <p>在上一篇文章《<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/weixin_38308374/article/details/114273724"  rel="nofollow">spring boot Actuator原理详解之启动</a>》详细介绍了在web环境下，Actuator是如何启动的，这里对流程做一个简单的总结：</p> <ol> <li>扫描所有@Endpoint注解的类，这些类都是Endpoint；</li> <li>使用过滤器对Endpoint对象进行过滤，没有被过滤掉的才可以进入下一步；</li> <li>读取Endpoint对象的每个方法，判断是否有@ReadOperation、@WriteOperation、@DeleteOperation三个注解，如果有，则针对每个被注解的方法创建操作对象Operation；</li> <li>根据操作对象、Endpoint对象、Endpoint名创建为RequestMappingInfo，并将其注册到spring mvc中；</li> <li>注册成功之后，Endpoint对象便可以对外提供服务。</li> </ol> <p>明白了上面整个启动流程之后，我们也可以编写一个自定义的Endpoint。<br /> 自定义Endpoint的关键点：</p> <ol> <li>类上必须有注解@Endpoint，注解必须设置id值，否则启动抛出如下异常：<code>Caused by: java.lang.IllegalStateException: No @Endpoint id attribute specified for XXXClass</code>；</li> <li>必须指定方法注解为下面三个中一个：<code>@ReadOperation、@WriteOperation、@DeleteOperation</code>；</li> <li>注解@Selector可以指定路径参数，比如<code>/actuator/caches/{cache}</code>花括号里面的内容是路径参数，我们可以在方法入参上添加@Selector来指定路径参数，比如<code>public String counters(@Selector int value)</code>；</li> <li>默认Endpoint对象的方法都是以json格式返回客户端，可以通过设置<code>@ReadOperation、@WriteOperation、@DeleteOperation</code>的produces属性指定其他格式。</li> </ol> <p>下面给出一个自定义Endpoint的例子：</p> <pre><code class="prism language-java"><span class="token comment">/**  * 统计方法该Endpoint对象的次数  */</span> <span class="token annotation punctuation">@Component</span> <span class="token annotation punctuation">@Endpoint</span><span class="token punctuation">(</span>id<span class="token operator">=</span><span class="token string">"counter"</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Counter</span>  <span class="token punctuation">{<!-- --></span>     <span class="token keyword">private</span> AtomicInteger cnt<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">AtomicInteger</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token annotation punctuation">@ReadOperation</span>     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">counter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> cnt<span class="token punctuation">.</span><span class="token function">getAndAdd</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>     <span class="token annotation punctuation">@ReadOperation</span>     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">counters</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Selector</span> <span class="token keyword">int</span> value<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> cnt<span class="token punctuation">.</span><span class="token function">getAndAdd</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>上面这个类只是一个示例，并没有实际意义。运行起来后，访问<code>http://localhost:8079/actuator/counter</code>，每次访问都会返回一个比之前大1的数字。</p> <p>我们还可以使用注解@EndpointWebExtension扩展已有的Endpoint。<br /> 下面是spring提供的对EnvironmentEndpoint的扩展：</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@EndpointWebExtension</span><span class="token punctuation">(</span>endpoint <span class="token operator">=</span> EnvironmentEndpoint<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EnvironmentEndpointWebExtension</span> <span class="token punctuation">{<!-- --></span> 	<span class="token keyword">private</span> <span class="token keyword">final</span> EnvironmentEndpoint delegate<span class="token punctuation">;</span> 	<span class="token keyword">public</span> <span class="token function">EnvironmentEndpointWebExtension</span><span class="token punctuation">(</span>EnvironmentEndpoint delegate<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 		<span class="token keyword">this</span><span class="token punctuation">.</span>delegate <span class="token operator">=</span> delegate<span class="token punctuation">;</span> 	<span class="token punctuation">}</span>  	<span class="token annotation punctuation">@ReadOperation</span> 	<span class="token keyword">public</span> WebEndpointResponse<span class="token generics function"><span class="token punctuation">&lt;</span>EnvironmentEntryDescriptor<span class="token punctuation">&gt;</span></span> <span class="token function">environmentEntry</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Selector</span> String toMatch<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 		EnvironmentEntryDescriptor descriptor <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>delegate<span class="token punctuation">.</span><span class="token function">environmentEntry</span><span class="token punctuation">(</span>toMatch<span class="token punctuation">)</span><span class="token punctuation">;</span> 		<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">WebEndpointResponse</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>descriptor<span class="token punctuation">,</span> <span class="token function">getStatus</span><span class="token punctuation">(</span>descriptor<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token punctuation">}</span>  	<span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token function">getStatus</span><span class="token punctuation">(</span>EnvironmentEntryDescriptor descriptor<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 		<span class="token keyword">if</span> <span class="token punctuation">(</span>descriptor<span class="token punctuation">.</span><span class="token function">getProperty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 			<span class="token keyword">return</span> WebEndpointResponse<span class="token punctuation">.</span>STATUS_NOT_FOUND<span class="token punctuation">;</span> 		<span class="token punctuation">}</span> 		<span class="token keyword">return</span> WebEndpointResponse<span class="token punctuation">.</span>STATUS_OK<span class="token punctuation">;</span> 	<span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>就web环境下来说，如果扩展类的方法有与原类相同的http请求路径，那么扩展类会替换掉原来的方法，也就是说，访问该路径时，不会访问到原类的方法，而是访问到扩展类。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-98300.htm">宠物店的销售有哪几种常用方法（宠物店的销售方式）</a></p>
+                                        <p>下一个：<a href="/news/article-98966.htm">合肥有领养猫的地方吗（合肥猫猫领养网站）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-19-free-subscribe-node.htm" title="最佳免费VPN推荐 | 4月19日18.9M/S|免费V2ray/SSR/Clash/Shadowrocket订阅机场">最佳免费VPN推荐 | 4月19日18.9M/S|免费V2ray/SSR/Clash/Shadowrocket订阅机场</a></li>
+                        <li class="py-2"><a href="/news/article-93084.htm" title="厦门同安领养宠物的地方（厦门同安领养宠物的地方在哪里）">厦门同安领养宠物的地方（厦门同安领养宠物的地方在哪里）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-15-free-subscribe-node.htm" title="最佳免费VPN推荐 | 4月15日18.4M/S|免费V2ray/SSR/Clash/Shadowrocket订阅机场">最佳免费VPN推荐 | 4月15日18.4M/S|免费V2ray/SSR/Clash/Shadowrocket订阅机场</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-9-free-high-speed-nodes.htm" title="最佳免费VPN推荐 | 4月9日22.2M/S|免费Clash/V2ray/Shadowrocket/SSR订阅机场">最佳免费VPN推荐 | 4月9日22.2M/S|免费Clash/V2ray/Shadowrocket/SSR订阅机场</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-13-free-node-subscribe.htm" title="最佳免费VPN推荐 | 4月13日23M/S|免费Clash/V2ray/SSR/Shadowrocket订阅机场">最佳免费VPN推荐 | 4月13日23M/S|免费Clash/V2ray/SSR/Shadowrocket订阅机场</a></li>
+                        <li class="py-2"><a href="/news/article-98295.htm" title="益格丰动物药业（吉林益格丰动物药产品）">益格丰动物药业（吉林益格丰动物药产品）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-17-node-share-links.htm" title="最佳免费VPN推荐 | 4月17日20.3M/S|免费Clash/SSR/Shadowrocket/V2ray订阅机场">最佳免费VPN推荐 | 4月17日20.3M/S|免费Clash/SSR/Shadowrocket/V2ray订阅机场</a></li>
+                        <li class="py-2"><a href="/news/article-91592.htm" title="动物医院有什么足够的吸引力呢英文（动物医院用英语怎么读）">动物医院有什么足够的吸引力呢英文（动物医院用英语怎么读）</a></li>
+                        <li class="py-2"><a href="/news/article-98300.htm" title="宠物店的销售有哪几种常用方法（宠物店的销售方式）">宠物店的销售有哪几种常用方法（宠物店的销售方式）</a></li>
+                        <li class="py-2"><a href="/news/article-97525.htm" title="动物疫苗的使用方法及注意事项视频讲解图片下载（动物疫苗知识）">动物疫苗的使用方法及注意事项视频讲解图片下载（动物疫苗知识）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">37</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features End -->
+        <!-- Footer Start -->
+    <section class="footer" style="background-image: url(/assets/website/img/clashvergegithub/hero-1-bg-img.png)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                        <p class="text-white-50 f-15 mb-0">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">最佳免费VPN推荐 机场订阅中文网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer End -->
+    <!-- javascript -->
+    <script src="/assets/website/js/frontend/clashvergegithub/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashvergegithub/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashvergegithub/jquery.easing.min.js"></script>
+    <!-- feather icons -->
+    <script src="/assets/website/js/frontend/clashvergegithub/feather-icons.js"></script>
+    <!-- carousel -->
+    <script src="/assets/website/js/frontend/clashvergegithub/owl.carousel.min.js"></script>
+    <!-- Main Js -->
+    <script src="/assets/website/js/frontend/clashvergegithub/app.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
