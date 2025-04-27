@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://topvpntuijian.github.io/news/article-105166.htm" />
+    <meta charset="utf-8">
+    <title>JAVA 实现websocket作为客户端（自动断线重连）</title>
+        <meta name="description" content="因为很少有这样作为客户端的使用，但是遇上特殊需求还是要作为客户端使用，spring-boot-starter集成的无法实现客户端，直接上代码 pom引入，这里使用的spring boot 其他项目自行" />
+        <link rel="icon" href="/assets/website/img/clashvergegithub/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="最佳免费VPN推荐 机场订阅中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://topvpntuijian.github.io/news/article-105166.htm" />
+    <meta property="og:site_name" content="最佳免费VPN推荐 机场订阅中文网" />
+    <meta property="og:title" content="JAVA 实现websocket作为客户端（自动断线重连）" />
+    <meta property="og:image" content="https://topvpntuijian.github.io/uploads/20240909/8931023d52fb4d6e0bb202efb8bc3621.webp" />
+        <meta property="og:release_date" content="2025-04-27T08:24:07" />
+    <meta property="og:updated_time" content="2025-04-27T08:24:07" />
+        <meta property="og:description" content="因为很少有这样作为客户端的使用，但是遇上特殊需求还是要作为客户端使用，spring-boot-starter集成的无法实现客户端，直接上代码 pom引入，这里使用的spring boot 其他项目自行" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Pe-7 icon -->
+    <link href="/assets/website/css/clashvergegithub/pe-icon-7.css" rel="stylesheet" type="text/css">
+    <!--Slider-->
+    <link rel="stylesheet" href="/assets/website/css/clashvergegithub/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergegithub/owl.theme.default.min.css">
+    <!-- css -->
+    <link href="/assets/website/css/clashvergegithub/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/website/css/clashvergegithub/style.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="JAVA 实现websocket作为客户端（自动断线重连）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GJ9RVVRN19"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GJ9RVVRN19');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!--Navbar Start-->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark align-items-center">
+        <div class="container">
+            <!-- LOGO -->
+            <a class="logo mr-3" href="/">
+                            <span>最佳免费VPN推荐</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="" data-feather="menu"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav">
+                                        <li class="nav-item">
+                        <a href="/" class="nav-link">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a href="/free-nodes/" class="nav-link">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a href="/paid-subscribe/" class="nav-link">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a href="/news/" class="nav-link">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a href="/client.htm" class="nav-link">客户端</a>
+                    </li>
+                                    </ul>
+                
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+    <!-- Hero Start -->
+    <section class="hero-5-bg position-relative bg-light" id="home" style="height:500px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div style="margin-top: 4rem;">
+                        <h1 class="hero-5-title line-height-1_4 mb-4">JAVA 实现websocket作为客户端（自动断线重连）</h1>
+                        <p class="text-muted mb-4 pb-3">
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="/assets/website/img/clashvergegithub/hero-5-img.png" alt="Clash Verge Github hero" class="hero-5-img">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero End -->
+    <!-- Features Start -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="features-content">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="htmledit_views"> <p>因为很少有这样作为客户端的使用，但是遇上特殊需求还是要作为客户端使用，spring-boot-starter集成的无法实现客户端，直接上代码</p> <p>pom引入，这里使用的spring boot 其他项目自行下载jar包库</p> <pre class="has"><code class="language-java">&lt;!--WebSocket核心依赖包--&gt; 		&lt;dependency&gt; 			&lt;groupId&gt;org.java-websocket&lt;/groupId&gt; 			&lt;artifactId&gt;Java-WebSocket&lt;/artifactId&gt; 			&lt;version&gt;1.3.8&lt;/version&gt; 		&lt;/dependency&gt;</code></pre> <pre class="has"><code class="language-java">package com.jwuwb.library.service.websocket;  import com.alibaba.fastjson.JSON; import com.alibaba.fastjson.JSONObject; import com.jwuwb.library.entity.PositionStation; import com.jwuwb.library.service.PositionStationService; import org.java_websocket.WebSocket.READYSTATE; import org.java_websocket.client.WebSocketClient; import org.java_websocket.handshake.ServerHandshake; import org.slf4j.Logger; import org.slf4j.LoggerFactory; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.beans.factory.annotation.Value; import org.springframework.stereotype.Component;  import java.net.URI;  /**  * websocket 建立连接...  * @author apple  */ @Component public class Client {     private static final Logger logger = LoggerFactory.getLogger(Client.class);  	public static void createConnect() throws Exception{         WebSocketClient client = new WebSocketClient(new URI(这里是你连接的websocket的地址)) {              @Override             public void onOpen(ServerHandshake arg0) {                 logger.info("开始建立链接...");             }              @Override             public void onMessage(String arg0) {               logger.info("检测到服务器请求...arg0 : " + arg0);             }              @Override             public void onError(Exception arg0) {                 arg0.printStackTrace();                 logger.info("客户端发生错误,即将关闭!");             }              @Override             public void onClose(int arg0, String arg1, boolean arg2) {                 logger.info("客户端已关闭!");                 logger.info("开始尝试重新连接...");                 try {                     Client.createConnect();                 } catch (Exception e) {                     e.printStackTrace();                     logger.info("重新连接失败,请检查网络!");                 }             }         };  		client.connect(); 		//判断连接状态, 		while (client.getReadyState().equals(READYSTATE.OPEN)) { 			logger. info("成功建立链接!"); 		} 	} }</code></pre> <p>由于websocket是多例的无法直接注入可以使用：<strong>（这里只是个示例，使用静态变量的方式可以实现注入）</strong></p> <pre><code class="language-java">public static UserService userService; @Autowired public void setService(UserService userService) {     Client.userService = userService; }</code></pre> <p>很简单直接调用</p> <pre class="has"><code class="language-java">Client.createConnect(); 或者@PostConstruct直接项目启动一起启动</code></pre> <p>2021-01-08：</p> <p>修复会自动断线bug:&nbsp;<img fetchpriority="high" decoding="async" alt="" height="205" src="http://img.555519.xyz/uploads/20230108/de1dc127a7b28bf7ebe8d5b873583ac2.jpg"></p> <p>在连接之前设置client的属性</p> <pre><code class="language-html">client.setConnectionLostTimeout(0); </code></pre> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-104354.htm">go语言编译过程概述</a></p>
+                                        <p>下一个：<a href="/news/article-105168.htm">Java 实现选择排序</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-93084.htm" title="厦门同安领养宠物的地方（厦门同安领养宠物的地方在哪里）">厦门同安领养宠物的地方（厦门同安领养宠物的地方在哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-103525.htm" title="领养狗狗的平台（领养狗狗的平台不限制地区）">领养狗狗的平台（领养狗狗的平台不限制地区）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-15-free-subscribe-node.htm" title="最佳免费VPN推荐 | 4月15日18.4M/S|免费V2ray/SSR/Clash/Shadowrocket订阅机场">最佳免费VPN推荐 | 4月15日18.4M/S|免费V2ray/SSR/Clash/Shadowrocket订阅机场</a></li>
+                        <li class="py-2"><a href="/news/article-90824.htm" title="RabbitMQ数据同步一致性解决方案">RabbitMQ数据同步一致性解决方案</a></li>
+                        <li class="py-2"><a href="/news/article-94579.htm" title="uni-app 学习笔记">uni-app 学习笔记</a></li>
+                        <li class="py-2"><a href="/news/article-100551.htm" title="狗粮品牌有哪些品牌好一点（狗粮排行榜6大优质品牌）">狗粮品牌有哪些品牌好一点（狗粮排行榜6大优质品牌）</a></li>
+                        <li class="py-2"><a href="/news/article-90825.htm" title="孕妇燕窝的正确做法:燕窝怎么炖最好(燕窝的正确做法:燕窝怎么炖最好视频)">孕妇燕窝的正确做法:燕窝怎么炖最好(燕窝的正确做法:燕窝怎么炖最好视频)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-16-free-subscribe-node.htm" title="最佳免费VPN推荐 | 4月16日22.8M/S|免费Clash/V2ray/Shadowrocket/SSR订阅机场">最佳免费VPN推荐 | 4月16日22.8M/S|免费Clash/V2ray/Shadowrocket/SSR订阅机场</a></li>
+                        <li class="py-2"><a href="/news/article-94580.htm" title="新疆的宠物（新疆的宠物食品品牌）">新疆的宠物（新疆的宠物食品品牌）</a></li>
+                        <li class="py-2"><a href="/news/article-93824.htm" title="动物疫苗属于生物农业吗为什么不能用农药（疫苗包括动物疫苗吗）">动物疫苗属于生物农业吗为什么不能用农药（疫苗包括动物疫苗吗）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features End -->
+        <!-- Footer Start -->
+    <section class="footer" style="background-image: url(/assets/website/img/clashvergegithub/hero-1-bg-img.png)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                        <p class="text-white-50 f-15 mb-0">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">最佳免费VPN推荐 机场订阅中文网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer End -->
+    <!-- javascript -->
+    <script src="/assets/website/js/frontend/clashvergegithub/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/clashvergegithub/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/clashvergegithub/jquery.easing.min.js"></script>
+    <!-- feather icons -->
+    <script src="/assets/website/js/frontend/clashvergegithub/feather-icons.js"></script>
+    <!-- carousel -->
+    <script src="/assets/website/js/frontend/clashvergegithub/owl.carousel.min.js"></script>
+    <!-- Main Js -->
+    <script src="/assets/website/js/frontend/clashvergegithub/app.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
