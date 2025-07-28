@@ -1,4 +1,4 @@
-# 最佳免费VPN推荐 | 7月22日21.5M/S|免费Shadowrocket/V2ray/SSR/Clash订阅机场  更新时间 2025-07-22 09:28:45
+# 最佳免费VPN推荐 | 7月28日20M/S|免费Clash/SSR/V2ray/Shadowrocket订阅机场  更新时间 2025-07-28 08:53:35
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://topvpntuijian.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://topvpntuijian.github.io/uploads/2025/07/0-20250722.yaml
-- https://topvpntuijian.github.io/uploads/2025/07/1-20250722.yaml
-- https://topvpntuijian.github.io/uploads/2025/07/2-20250722.yaml
-- https://topvpntuijian.github.io/uploads/2025/07/3-20250722.yaml
-- https://topvpntuijian.github.io/uploads/2025/07/4-20250722.yaml
+- https://topvpntuijian.github.io/uploads/2025/07/0-20250728.yaml
+- https://topvpntuijian.github.io/uploads/2025/07/1-20250728.yaml
+- https://topvpntuijian.github.io/uploads/2025/07/2-20250728.yaml
+- https://topvpntuijian.github.io/uploads/2025/07/3-20250728.yaml
+- https://topvpntuijian.github.io/uploads/2025/07/4-20250728.yaml
 
 ### V2ray订阅链接
 
-- https://topvpntuijian.github.io/uploads/2025/07/0-20250722.txt
-- https://topvpntuijian.github.io/uploads/2025/07/1-20250722.txt
-- https://topvpntuijian.github.io/uploads/2025/07/2-20250722.txt
-- https://topvpntuijian.github.io/uploads/2025/07/3-20250722.txt
-- https://topvpntuijian.github.io/uploads/2025/07/4-20250722.txt
+- https://topvpntuijian.github.io/uploads/2025/07/0-20250728.txt
+- https://topvpntuijian.github.io/uploads/2025/07/1-20250728.txt
+- https://topvpntuijian.github.io/uploads/2025/07/2-20250728.txt
+- https://topvpntuijian.github.io/uploads/2025/07/3-20250728.txt
+- https://topvpntuijian.github.io/uploads/2025/07/4-20250728.txt
 
 ### Sing-box订阅链接
 
-- https://topvpntuijian.github.io/uploads/2025/07/20250722.json
+- https://topvpntuijian.github.io/uploads/2025/07/20250728.json
 
 ## 更多clash节点订阅 ：
 
