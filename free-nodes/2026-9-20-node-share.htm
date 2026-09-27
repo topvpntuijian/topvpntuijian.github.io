@@ -258,12 +258,13 @@ V2Ray本身独立运行无需依赖LSTM，但结合LSTM后可提升网络管理�
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
         <p>上一个：<a href="/free-nodes/mianfei-vpn-2026-9-19.htm">最佳免费VPN推荐 | 9月19日21.1M/S|免费Singbox节点/V2ray节点/Shadowrocket节点/Clash节点/Trojan节点/SSR节点订阅机场</a></p>
+        <p>下一个：<a href="/free-nodes/top-vpn-2026-9-21.htm">最佳免费VPN推荐 | 9月21日19.2M/S|免费Clash节点/Singbox节点/V2ray节点/Trojan节点/SSR节点/Shadowrocket节点订阅机场</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray QUIC 模式在高丢包网络中的优势？</h5></div>
+    <div class="panel-heading"><h5>PassWall2 如何实现智能分流？</h5></div>
     <div class="panel-body">
-        QUIC 基于 UDP 协议，支持多路复用和零握手，可减少延迟和丢包。适合视频、游戏和即时通讯等高丢包环境，保证访问稳定性和速度，提高整体体验。<hr />    </div>
+        PassWall2 通过自定义规则文件控制流量走向。可根据目标域名、国家或 IP 范围自动判断走代理或直连。用户还能加载社区规则，实现类似 Clash 的高效路由分流。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2RayA 在 Linux 系统中如何开机自启？</h5></div>
@@ -271,19 +272,9 @@ V2Ray本身独立运行无需依赖LSTM，但结合LSTM后可提升网络管理�
         可通过 systemd 创建启动项或在启动脚本中添加 V2RayA 启动命令。编辑 /etc/systemd/system/v2raya.service 文件并设置 `Restart=always`，执行 `systemctl enable v2raya` 使其随系统自动启动。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess AEAD 加密如何确保数据安全？</h5></div>
+    <div class="panel-heading"><h5>Vmess 节点可以通过 CDN 吗？</h5></div>
     <div class="panel-body">
-        AEAD 加密防止数据篡改、重放攻击和流量特征泄露。在高封锁环境下，保证节点可用，提升数据安全和连接稳定性，降低被检测风险，确保长期安全访问。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 支持节点订阅批量更新吗？</h5></div>
-    <div class="panel-body">
-        支持。用户可通过订阅 URL 批量更新节点，程序会自动下载并替换旧节点。定期更新保证节点列表始终可用，减少手动维护，提高使用效率和便利性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS 的 XTLS 模式能提升传输效率吗？</h5></div>
-    <div class="panel-body">
-        XTLS 模式通过减少冗余加密和握手次数，降低延迟，提高吞吐量。在高并发和短连接场景下，效率明显优于普通 TLS，同时保持数据安全性和隐蔽性。<hr />    </div>
+        可以。Vmess 可通过 WebSocket 与 CDN 结合使用，只需将传输方式设置为 WS 并配置 host 与 path，即可实现流量中转。这样既能隐藏真实服务器，又能提升连接速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess 节点的 alterId 参数还需要设置吗？</h5></div>
@@ -291,24 +282,34 @@ V2Ray本身独立运行无需依赖LSTM，但结合LSTM后可提升网络管理�
         在新版 V2Ray/Xray 内核中，alterId 已被废弃，不再影响认证逻辑。建议用户设置为 0 或删除该字段，以避免连接异常或不兼容情况。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Vmess 节点可以通过 CDN 吗？</h5></div>
-    <div class="panel-body">
-        可以。Vmess 可通过 WebSocket 与 CDN 结合使用，只需将传输方式设置为 WS 并配置 host 与 path，即可实现流量中转。这样既能隐藏真实服务器，又能提升连接速度。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Netch 的 TUN 模式与 SOCKS 模式有何差异？</h5></div>
     <div class="panel-body">
         TUN 模式通过虚拟网卡拦截所有流量，更接近系统级代理；SOCKS 模式则仅作用于指定应用。TUN 模式更适合全局代理需求，而 SOCKS 模式轻量快捷，适用于游戏或单软件加速。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 如何实现智能分流？</h5></div>
+    <div class="panel-heading"><h5>Nekoray 支持节点订阅批量更新吗？</h5></div>
     <div class="panel-body">
-        PassWall2 通过自定义规则文件控制流量走向。可根据目标域名、国家或 IP 范围自动判断走代理或直连。用户还能加载社区规则，实现类似 Clash 的高效路由分流。<hr />    </div>
+        支持。用户可通过订阅 URL 批量更新节点，程序会自动下载并替换旧节点。定期更新保证节点列表始终可用，减少手动维护，提高使用效率和便利性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 的协议插件如何增强连接稳定性？</h5></div>
     <div class="panel-body">
-        SSR 的协议插件可以增加流量的伪装特性，模拟常见协议或浏览器行为，从而降低被识别和封锁的风险。这对不稳定网络或高封锁环境尤其有帮助。    </div>
+        SSR 的协议插件可以增加流量的伪装特性，模拟常见协议或浏览器行为，从而降低被识别和封锁的风险。这对不稳定网络或高封锁环境尤其有帮助。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS 的 XTLS 模式能提升传输效率吗？</h5></div>
+    <div class="panel-body">
+        XTLS 模式通过减少冗余加密和握手次数，降低延迟，提高吞吐量。在高并发和短连接场景下，效率明显优于普通 TLS，同时保持数据安全性和隐蔽性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess AEAD 加密如何确保数据安全？</h5></div>
+    <div class="panel-body">
+        AEAD 加密防止数据篡改、重放攻击和流量特征泄露。在高封锁环境下，保证节点可用，提升数据安全和连接稳定性，降低被检测风险，确保长期安全访问。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray QUIC 模式在高丢包网络中的优势？</h5></div>
+    <div class="panel-body">
+        QUIC 基于 UDP 协议，支持多路复用和零握手，可减少延迟和丢包。适合视频、游戏和即时通讯等高丢包环境，保证访问稳定性和速度，提高整体体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -356,16 +357,16 @@ V2Ray本身独立运行无需依赖LSTM，但结合LSTM后可提升网络管理�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-9-18-free-vpn-node.htm" title="最佳免费VPN推荐 | 9月18日21.8M/S|免费SSR节点/Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/Trojan节点订阅机场">最佳免费VPN推荐 | 9月18日21.8M/S|免费SSR节点/Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/Trojan节点订阅机场</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-10-top-vpn-node.htm" title="最佳免费VPN推荐 | 9月10日19.2M/S|免费Shadowrocket节点/V2ray节点/Singbox节点/SSR节点/Trojan节点/Clash节点订阅机场">最佳免费VPN推荐 | 9月10日19.2M/S|免费Shadowrocket节点/V2ray节点/Singbox节点/SSR节点/Trojan节点/Clash节点订阅机场</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/share-vpn-2026-9-11.htm" title="最佳免费VPN推荐 | 9月11日21M/S|免费Singbox节点/Clash节点/Shadowrocket节点/SSR节点/Trojan节点/V2ray节点订阅机场">最佳免费VPN推荐 | 9月11日21M/S|免费Singbox节点/Clash节点/Shadowrocket节点/SSR节点/Trojan节点/V2ray节点订阅机场</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-6-vpn-free.htm" title="最佳免费VPN推荐 | 8月6日20.1M/S|免费SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点订阅机场">最佳免费VPN推荐 | 8月6日20.1M/S|免费SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点订阅机场</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-9-12-top-vpn-node.htm" title="最佳免费VPN推荐 | 9月12日18.4M/S|免费Clash节点/Singbox节点/V2ray节点/SSR节点/Trojan节点/Shadowrocket节点订阅机场">最佳免费VPN推荐 | 9月12日18.4M/S|免费Clash节点/Singbox节点/V2ray节点/SSR节点/Trojan节点/Shadowrocket节点订阅机场</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-25.htm" title="最佳免费VPN推荐 | 8月25日22.7M/S|免费Trojan节点/Clash节点/Singbox节点/V2ray节点/SSR节点/Shadowrocket节点订阅机场">最佳免费VPN推荐 | 8月25日22.7M/S|免费Trojan节点/Clash节点/Singbox节点/V2ray节点/SSR节点/Shadowrocket节点订阅机场</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-30-node-share.htm" title="最佳免费VPN推荐 | 8月30日18.8M/S|免费V2ray节点/Singbox节点/Shadowrocket节点/Trojan节点/SSR节点/Clash节点订阅机场">最佳免费VPN推荐 | 8月30日18.8M/S|免费V2ray节点/Singbox节点/Shadowrocket节点/Trojan节点/SSR节点/Clash节点订阅机场</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-16-free-node-subscribe.htm" title="最佳免费VPN推荐 | 8月16日22.2M/S|免费Singbox节点/Shadowrocket节点/SSR节点/Trojan节点/V2ray节点/Clash节点订阅机场">最佳免费VPN推荐 | 8月16日22.2M/S|免费Singbox节点/Shadowrocket节点/SSR节点/Trojan节点/V2ray节点/Clash节点订阅机场</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/share-vpn-2026-8-7.htm" title="最佳免费VPN推荐 | 8月7日18M/S|免费Singbox节点/V2ray节点/Trojan节点/Clash节点/SSR节点/Shadowrocket节点订阅机场">最佳免费VPN推荐 | 8月7日18M/S|免费Singbox节点/V2ray节点/Trojan节点/Clash节点/SSR节点/Shadowrocket节点订阅机场</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-26-free-node-subscribe.htm" title="最佳免费VPN推荐 | 9月26日20.2M/S|免费Clash节点/Shadowrocket节点/SSR节点/Singbox节点/Trojan节点/V2ray节点订阅机场">最佳免费VPN推荐 | 9月26日20.2M/S|免费Clash节点/Shadowrocket节点/SSR节点/Singbox节点/Trojan节点/V2ray节点订阅机场</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/free-vpn-2026-8-23.htm" title="最佳免费VPN推荐 | 8月23日22.3M/S|免费SSR节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点/Trojan节点订阅机场">最佳免费VPN推荐 | 8月23日22.3M/S|免费SSR节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点/Trojan节点订阅机场</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/mianfei-vpn-2026-9-19.htm" title="最佳免费VPN推荐 | 9月19日21.1M/S|免费Singbox节点/V2ray节点/Shadowrocket节点/Clash节点/Trojan节点/SSR节点订阅机场">最佳免费VPN推荐 | 9月19日21.1M/S|免费Singbox节点/V2ray节点/Shadowrocket节点/Clash节点/Trojan节点/SSR节点订阅机场</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/share-vpn-2026-9-27.htm" title="最佳免费VPN推荐 | 9月27日21.7M/S|免费Shadowrocket节点/Trojan节点/SSR节点/Singbox节点/V2ray节点/Clash节点订阅机场">最佳免费VPN推荐 | 9月27日21.7M/S|免费Shadowrocket节点/Trojan节点/SSR节点/Singbox节点/V2ray节点/Clash节点订阅机场</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-31.htm" title="最佳免费VPN推荐 | 8月31日20.3M/S|免费Singbox节点/Shadowrocket节点/V2ray节点/Clash节点/SSR节点/Trojan节点订阅机场">最佳免费VPN推荐 | 8月31日20.3M/S|免费Singbox节点/Shadowrocket节点/V2ray节点/Clash节点/SSR节点/Trojan节点订阅机场</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-6-vpn-free.htm" title="最佳免费VPN推荐 | 8月6日20.1M/S|免费SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点订阅机场">最佳免费VPN推荐 | 8月6日20.1M/S|免费SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点订阅机场</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-24-vpn-proxy.htm" title="最佳免费VPN推荐 | 8月24日21.7M/S|免费Shadowrocket节点/V2ray节点/Trojan节点/Singbox节点/Clash节点/SSR节点订阅机场">最佳免费VPN推荐 | 8月24日21.7M/S|免费Shadowrocket节点/V2ray节点/Trojan节点/Singbox节点/Clash节点/SSR节点订阅机场</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-6-free-node-subscribe.htm" title="最佳免费VPN推荐 | 9月6日21.8M/S|免费V2ray节点/Shadowrocket节点/Singbox节点/Clash节点/Trojan节点/SSR节点订阅机场">最佳免费VPN推荐 | 9月6日21.8M/S|免费V2ray节点/Shadowrocket节点/Singbox节点/Clash节点/Trojan节点/SSR节点订阅机场</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-4-vpn-proxy.htm" title="最佳免费VPN推荐 | 9月4日19.4M/S|免费Clash节点/Shadowrocket节点/Singbox节点/V2ray节点/Trojan节点/SSR节点订阅机场">最佳免费VPN推荐 | 9月4日19.4M/S|免费Clash节点/Shadowrocket节点/Singbox节点/V2ray节点/Trojan节点/SSR节点订阅机场</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -377,7 +378,7 @@ V2Ray本身独立运行无需依赖LSTM，但结合LSTM后可提升网络管理�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">20</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
